@@ -6,4 +6,9 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   modules: ['@nuxtjs/tailwindcss'],
+  runtimeConfig: {
+    public: {
+      githubRepoUrl: process.env.GITHUB_REPO_URL
+    }
+  }
 })

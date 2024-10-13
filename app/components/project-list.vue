@@ -27,9 +27,9 @@
 </template>
 
 <script lang="ts" setup>
-// const GITHUB_REPO_URL = "https://api.github.com/users/ajgadev/repos";
-const { error, pending, data } = await useFetch(process.env.GITHUB_REPO_URL ?? '');
-// const { error, pending, data } = await useFetch(GITHUB_REPO_URL);
+import { useRuntimeConfig } from '#app';
+const config = useRuntimeConfig();
+const { error, pending, data } = await useFetch(config.public.githubRepoUrl);
 const repos = computed(() =>
   data.value
     ?.filter((repo) => repo.description)
