@@ -8,7 +8,7 @@
       </div>
       <Menu />
     </header>
-    <main class="py-5">
+    <main class="py-5 mt-10">
       <slot />
     </main>
   </div>
