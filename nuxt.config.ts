@@ -5,10 +5,13 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/color-mode'],
   runtimeConfig: {
     public: {
       githubRepoUrl: process.env.GITHUB_REPO_URL
     }
+  },
+  colorMode: {
+    classSuffix: ''
   }
 })
