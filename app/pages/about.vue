@@ -1,11 +1,7 @@
 <template>
-  <div>
-    About page
-
-    <div>
-      <button @click="enableCustomLayout">Update layout</button>
-    </div>
-  </div>
+  <article class="prose dark:prose-invert prose-h1:text-2xl">
+    <ContentDoc path="/about"/>
+  </article>
 </template>
 
 <script lang="ts" setup>

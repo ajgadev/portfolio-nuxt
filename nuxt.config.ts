@@ -5,7 +5,11 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/color-mode'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode',
+    '@nuxt/content'
+  ],
   runtimeConfig: {
     public: {
       githubRepoUrl: process.env.GITHUB_REPO_URL
