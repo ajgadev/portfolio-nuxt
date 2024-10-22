@@ -10,6 +10,14 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/content'
   ],
+  content: {
+    highlight: {
+      theme: {
+        default: 'min-light',
+        dark: 'min-dark'
+      }
+    }
+  },
   runtimeConfig: {
     public: {
       githubRepoUrl: process.env.GITHUB_REPO_URL

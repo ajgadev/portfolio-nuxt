@@ -1,6 +1,4 @@
 <template>
-  <p class="mb-10">Take a look at my Github projects</p>
-
   <section v-if="pending">
     <div>Loading...</div>
   </section>
