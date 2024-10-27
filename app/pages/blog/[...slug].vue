@@ -9,7 +9,7 @@
           <aside class="sticky top-8">
             <div class="font-semibold mb-2">Table of Contents</div>
             <nav>
-              <TocLinks :links="doc.body.toc.links" />
+              <TocLinks :links="doc.body.toc.links" :activeId="activeId" />
             </nav>
           </aside>
         </div>
@@ -19,9 +19,32 @@
 </template>
 
 <script lang="ts" setup>
-const route = useRoute()
+const activeId = ref(null);
+onMounted(() => {
+  const callback = (entries: IntersectionObserverEntry[]) => {
+    for (const entry of entries){
+      if (entry.isIntersecting) {
+        activeId.value = entry.target.id;
+        break;
+      }
+    };
+  };
+  
+  const observer = new IntersectionObserver(callback, {
+    root: null,
+    threshold: 0.5,
+  });
+
+  const elements = document.querySelectorAll('h1, h2');
+  for (const element of elements) {
+    observer.observe(element);
+  }
+
+  onBeforeUnmount(() => {
+    for (const element of elements) {
+      observer.unobserve(element);
+    }
+  });
+
+});
 </script>
-
-<style>
-
-</style>
