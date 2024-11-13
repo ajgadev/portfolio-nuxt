@@ -5,6 +5,9 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
+  app: {
+    pageTransition: { name: 'xxx', mode: 'out-in' },
+  },
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
