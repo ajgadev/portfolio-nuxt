@@ -21,7 +21,7 @@
 
 <script lang="ts" setup>
 useHead({
-  titileTemplate: "%s | Alejandro Guevara",
+  titleTemplate: "%s | Alejandro Guevara",
   link: [
     {
       rel: "preconnect",
