@@ -9,9 +9,9 @@
         <li v-for="post in posts" :key="post._path">
           <NuxtLink
             :to="post._path"
-            class="column hover:bg-gray-100 dark:hover:bg-gray-800"
+            class="column group hover:bg-gray-100 dark:hover:bg-gray-800"
           >
-            <div :class="{'text-white dark:text-gray-900': !post.shouldDisplayYear, 'text-gray-400 dark:text-gray-500': post.shouldDisplayYear}">
+            <div :class="{'text-white group-hover:text-gray-100 dark:group-hover:text-gray-800 dark:text-gray-900': !post.shouldDisplayYear, 'text-gray-400 dark:text-gray-500': post.shouldDisplayYear}">
               {{ post.year }}
             </div>
             <div>{{ post.title }}</div>
@@ -40,7 +40,7 @@
     if (props.limit) {
       query.limit(props.limit);
     }
-    
+
     return query.find();
   });
 

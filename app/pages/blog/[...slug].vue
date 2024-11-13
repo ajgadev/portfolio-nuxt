@@ -18,7 +18,7 @@
             <aside class="sticky top-8">
               <div class="font-semibold mb-2">Table of Contents</div>
               <nav>
-                <TocLinks :links="doc.body.toc.links" :activeId="activeId" />
+                <TocLinks :links="doc?.body?.toc?.links" :activeId="activeId || undefined" />
               </nav>
             </aside>
           </div>
@@ -29,8 +29,9 @@
 </template>
 
 <script lang="ts" setup>
-const activeId = ref(null);
+const activeId = ref<string | null>(null);
 onMounted(() => {
+  let elements: HTMLElement[] = [];
   const callback = (entries: IntersectionObserverEntry[]) => {
     for (const entry of entries){
       if (entry.isIntersecting) {
@@ -45,10 +46,12 @@ onMounted(() => {
     threshold: 0.5,
   });
 
-  const elements = document.querySelectorAll('h1, h2');
-  for (const element of elements) {
-    observer.observe(element);
-  }
+  setTimeout(() => {
+    elements = Array.from(document.querySelectorAll('h1, h2'));
+    for (const element of elements) {
+      observer.observe(element);
+    }
+  }, 150);
 
   onBeforeUnmount(() => {
     for (const element of elements) {

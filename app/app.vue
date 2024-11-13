@@ -7,7 +7,7 @@
 <style>
 .xxx-enter-active,
 .xxx-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 0.1s;
 }
 
 .xxx-enter-from,
